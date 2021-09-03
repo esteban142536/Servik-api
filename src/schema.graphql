@@ -1,0 +1,54 @@
+type Query {
+  User: [User]
+  Servise:[Servise]
+  Analityc:[Analityc]
+}
+
+type Mutation {
+  login(email: String!, password: String!): User
+  Signin(email: String!, name: String!, contact: Int, password: String!): User
+  addServise(
+    title: String
+    content: String!
+    servitorID: String!
+    category: String!
+    location: Float!
+  ): Servise
+  seachServise(seach: String, category: String): [Servise]!
+  getServiseId(id: String!): Servise!
+  getUserById(id: String!): User!
+  createAnalityc(serviseID: String!): Analityc!
+  updateAnalityc(serviseID: String!, Clicks:Int,contact:Int, reports:Int):Analityc!
+}
+
+type User {
+  id: String!
+  email: String!
+  name: String!
+  servise: [Servise]
+  contact: Int
+  password: String!
+  isValid: Boolean!
+}
+
+type Servise {
+  id: String!
+  title: String!
+  content: String!
+  Reviews: Float
+  servitor: User
+  servitorID: Int
+  category: String!
+  location: Float!
+}
+
+type Analityc {
+  id: String!
+  servitor: Servise
+  ServiseID: Int
+  Views: Int!
+  Clicks: Int!
+  Contacts: Int!
+  reports: Int!
+}
+

@@ -1,1 +1,1 @@
-Servik-api
+servik
